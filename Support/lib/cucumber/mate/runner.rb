@@ -55,7 +55,8 @@ module Cucumber
       end
       
       def cucumber_cmd
-        File.exists?(script = "#{@project_directory}/script/cucumber") ? script : @cucumber_bin
+        command = File.exists?(script = "#{@project_directory}/script/cucumber") ? script : @cucumber_bin
+        "#{command} -r features"
       end
 
       def in_project_dir(&block)
